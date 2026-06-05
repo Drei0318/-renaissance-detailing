@@ -1,0 +1,1748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Renaissance Detailing | Sydney Mobile Car Detailing & Ceramic Coating</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #0a0a0a;
+      --dark: #111111;
+      --dark-2: #1a1a1a;
+      --dark-3: #222222;
+      --silver: #c0c0c0;
+      --silver-light: #d8d8d8;
+      --silver-dim: #888888;
+      --white: #f5f5f5;
+      --pure-white: #ffffff;
+      --accent: #b8b8b8;
+      --border: rgba(192,192,192,0.18);
+      --border-hover: rgba(192,192,192,0.45);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--black);
+      color: var(--white);
+      overflow-x: hidden;
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    /* ─── SCROLLBAR ──────────────────────────────── */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--black); }
+    ::-webkit-scrollbar-thumb { background: var(--silver-dim); }
+
+    /* ─── TYPOGRAPHY ─────────────────────────────── */
+    h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 400; }
+
+    .overline {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--silver-dim);
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.85rem;
+      color: var(--silver-dim);
+      letter-spacing: 0.05em;
+      max-width: 480px;
+    }
+
+    /* ─── LAYOUT ─────────────────────────────────── */
+    section { padding: 7rem 0; }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .section-header {
+      margin-bottom: 4rem;
+    }
+
+    .divider {
+      width: 40px;
+      height: 1px;
+      background: var(--silver);
+      margin: 1.5rem 0;
+    }
+
+    /* ─── NAV ────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 1.5rem 2rem;
+      transition: background 0.4s ease, padding 0.4s ease, backdrop-filter 0.4s ease;
+    }
+
+    nav.scrolled {
+      background: rgba(10,10,10,0.97);
+      backdrop-filter: blur(12px);
+      padding: 1rem 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .logo-mark {
+      width: 44px;
+      height: 44px;
+      flex-shrink: 0;
+      transition: opacity 0.3s;
+    }
+
+    .logo:hover .logo-mark { opacity: 0.85; }
+
+    .logo-wordmark {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .logo-top {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--white);
+      line-height: 1;
+    }
+
+    .logo-line {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--silver), transparent);
+      margin: 3px 0;
+    }
+
+    .logo-bottom {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.44rem;
+      font-weight: 500;
+      letter-spacing: 0.55em;
+      text-transform: uppercase;
+      color: var(--silver-dim);
+      line-height: 1;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.67rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--silver-dim);
+      text-decoration: none;
+      transition: color 0.3s;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--silver);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover { color: var(--white); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-cta {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--black) !important;
+      background: var(--silver);
+      padding: 0.6rem 1.4rem;
+      text-decoration: none;
+      transition: background 0.3s, color 0.3s !important;
+    }
+
+    .nav-cta:hover {
+      background: var(--white) !important;
+      color: var(--black) !important;
+    }
+
+    .nav-cta::after { display: none !important; }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--silver);
+      transition: all 0.3s;
+    }
+
+    .hamburger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(10,10,10,0.98);
+      z-index: 999;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+    }
+
+    .mobile-menu.open { display: flex; }
+
+    .mobile-menu a {
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--silver-dim);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .mobile-menu a:hover { color: var(--white); }
+
+    /* ─── HERO ───────────────────────────────────── */
+    #hero {
+      height: 100vh;
+      min-height: 700px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      padding: 0;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 60% 50%, rgba(70,70,70,0.15) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 20% 80%, rgba(50,50,50,0.1) 0%, transparent 60%),
+        linear-gradient(135deg, #0a0a0a 0%, #161616 40%, #111111 70%, #0a0a0a 100%);
+    }
+
+    .hero-shimmer {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        105deg,
+        transparent 30%,
+        rgba(192,192,192,0.03) 45%,
+        rgba(192,192,192,0.06) 50%,
+        rgba(192,192,192,0.03) 55%,
+        transparent 70%
+      );
+      animation: shimmer 8s ease-in-out infinite;
+    }
+
+    @keyframes shimmer {
+      0%, 100% { opacity: 0.4; transform: translateX(-5%); }
+      50% { opacity: 1; transform: translateX(5%); }
+    }
+
+    .hero-lines {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+    }
+
+    .hero-line {
+      position: absolute;
+      width: 1px;
+      height: 100%;
+      background: linear-gradient(180deg, transparent, rgba(192,192,192,0.06), transparent);
+    }
+
+    .hero-line:nth-child(1) { left: 20%; }
+    .hero-line:nth-child(2) { left: 40%; }
+    .hero-line:nth-child(3) { left: 60%; }
+    .hero-line:nth-child(4) { left: 80%; }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      width: 100%;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.45em;
+      text-transform: uppercase;
+      color: var(--silver-dim);
+      margin-bottom: 1.8rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 1px;
+      background: var(--silver-dim);
+    }
+
+    .hero-title {
+      font-size: clamp(3rem, 8vw, 7rem);
+      font-weight: 400;
+      line-height: 1.0;
+      letter-spacing: 0.02em;
+      color: var(--white);
+      margin-bottom: 1.8rem;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--silver-light);
+    }
+
+    .hero-subtitle {
+      font-size: 0.8rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      color: var(--silver-dim);
+      margin-bottom: 3rem;
+      max-width: 420px;
+      line-height: 1.8;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--black);
+      background: var(--silver);
+      padding: 1rem 2.5rem;
+      text-decoration: none;
+      transition: background 0.3s, transform 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary:hover {
+      background: var(--white);
+      transform: translateY(-1px);
+    }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--silver-dim);
+      text-decoration: none;
+      transition: color 0.3s;
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+
+    .btn-ghost:hover { color: var(--white); }
+
+    .btn-ghost::after {
+      content: '→';
+      font-size: 0.9rem;
+      letter-spacing: 0;
+      transition: transform 0.3s;
+    }
+
+    .btn-ghost:hover::after { transform: translateX(4px); }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      opacity: 0.4;
+    }
+
+    .hero-scroll span {
+      font-size: 0.55rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--silver);
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(180deg, var(--silver), transparent);
+      animation: scrollAnim 2s ease-in-out infinite;
+    }
+
+    @keyframes scrollAnim {
+      0%, 100% { transform: scaleY(1); opacity: 1; }
+      50% { transform: scaleY(0.5); opacity: 0.3; }
+    }
+
+    /* ─── SERVICES ───────────────────────────────── */
+    #services { background: var(--dark); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+    }
+
+    .service-card {
+      background: var(--dark);
+      padding: 2.5rem 2rem;
+      transition: background 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--silver), transparent);
+      transition: width 0.4s ease;
+    }
+
+    .service-card:hover { background: var(--dark-2); }
+    .service-card:hover::before { width: 100%; }
+
+    .service-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      font-weight: 400;
+      color: rgba(192,192,192,0.08);
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+
+    .service-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      color: var(--white);
+      margin-bottom: 0.75rem;
+    }
+
+    .service-desc {
+      font-size: 0.78rem;
+      color: var(--silver-dim);
+      line-height: 1.8;
+    }
+
+    .service-tag {
+      display: inline-block;
+      margin-top: 1.5rem;
+      font-size: 0.58rem;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--silver-dim);
+      border: 1px solid var(--border);
+      padding: 0.3rem 0.7rem;
+      transition: border-color 0.3s, color 0.3s;
+    }
+
+    .service-card:hover .service-tag {
+      border-color: var(--silver-dim);
+      color: var(--silver-light);
+    }
+
+    /* ─── ABOUT ──────────────────────────────────── */
+    #about { background: var(--black); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+
+    .about-text p {
+      font-size: 0.85rem;
+      color: var(--silver-dim);
+      margin-bottom: 1.2rem;
+      line-height: 1.9;
+    }
+
+    .about-text p strong {
+      color: var(--silver-light);
+      font-weight: 500;
+    }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 2.5rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .stat-item {}
+
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      color: var(--white);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--silver-dim);
+      margin-top: 0.4rem;
+    }
+
+    .about-visual {
+      position: relative;
+      height: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .about-circle-outer {
+      position: absolute;
+      width: 360px;
+      height: 360px;
+      border: 1px solid rgba(192,192,192,0.08);
+      border-radius: 50%;
+      animation: rotateSlow 30s linear infinite;
+    }
+
+    .about-circle-inner {
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      border: 1px solid rgba(192,192,192,0.12);
+      border-radius: 50%;
+      animation: rotateSlow 20s linear infinite reverse;
+    }
+
+    .about-circle-core {
+      width: 160px;
+      height: 160px;
+      border: 1px solid rgba(192,192,192,0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 4px;
+      position: relative;
+    }
+
+    .about-circle-dot {
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--silver);
+      top: -2.5px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    @keyframes rotateSlow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .about-circle-outer::before,
+    .about-circle-inner::before {
+      content: '';
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--silver-dim);
+      top: -3px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .about-logo-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--silver-dim);
+      text-align: center;
+    }
+
+    /* ─── WHY CHOOSE US ──────────────────────────── */
+    #why { background: var(--dark); }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
+    }
+
+    .why-item {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .why-icon {
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--silver);
+      flex-shrink: 0;
+      transition: border-color 0.3s;
+    }
+
+    .why-item:hover .why-icon { border-color: var(--silver-dim); }
+
+    .why-icon svg {
+      width: 18px;
+      height: 18px;
+      stroke: currentColor;
+      stroke-width: 1.2;
+      fill: none;
+    }
+
+    .why-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      color: var(--white);
+    }
+
+    .why-desc {
+      font-size: 0.78rem;
+      color: var(--silver-dim);
+      line-height: 1.8;
+    }
+
+    /* ─── GALLERY ────────────────────────────────── */
+    #gallery { background: var(--black); }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 260px);
+      gap: 2px;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .gallery-item:nth-child(1) {
+      background: linear-gradient(135deg, #1a1a1a 0%, #222 40%, #161616 100%);
+    }
+    .gallery-item:nth-child(2) {
+      background: linear-gradient(220deg, #111 0%, #1e1e1e 50%, #131313 100%);
+    }
+    .gallery-item:nth-child(3) {
+      background: linear-gradient(45deg, #181818 0%, #1c1c1c 60%, #111 100%);
+    }
+    .gallery-item:nth-child(4) {
+      background: linear-gradient(200deg, #141414 0%, #1a1a1a 50%, #111 100%);
+    }
+    .gallery-item:nth-child(5) {
+      background: linear-gradient(160deg, #1b1b1b 0%, #121212 50%, #1e1e1e 100%);
+    }
+    .gallery-item:nth-child(6) {
+      background: linear-gradient(100deg, #111 0%, #181818 50%, #1c1c1c 100%);
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(10,10,10,0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.4s;
+    }
+
+    .gallery-item:hover .gallery-overlay {
+      background: rgba(10,10,10,0.2);
+    }
+
+    .gallery-watermark {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: rgba(192,192,192,0.2);
+      transition: color 0.4s;
+    }
+
+    .gallery-item:hover .gallery-watermark {
+      color: rgba(192,192,192,0.5);
+    }
+
+    .gallery-shimmer {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        115deg,
+        transparent 40%,
+        rgba(255,255,255,0.03) 50%,
+        transparent 60%
+      );
+      transform: translateX(-100%);
+      transition: transform 0.6s ease;
+    }
+
+    .gallery-item:hover .gallery-shimmer {
+      transform: translateX(100%);
+    }
+
+    /* ─── BOOKING ────────────────────────────────── */
+    #booking { background: var(--dark); }
+
+    .booking-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.8fr;
+      gap: 6rem;
+      align-items: start;
+    }
+
+    .booking-info p {
+      font-size: 0.82rem;
+      color: var(--silver-dim);
+      line-height: 1.9;
+      margin-bottom: 2rem;
+    }
+
+    .booking-detail {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .booking-detail-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1rem;
+      border: 1px solid var(--border);
+    }
+
+    .booking-detail-icon {
+      color: var(--silver-dim);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .booking-detail-icon svg {
+      width: 16px;
+      height: 16px;
+      stroke: currentColor;
+      stroke-width: 1.2;
+      fill: none;
+    }
+
+    .booking-detail-text {
+      font-size: 0.75rem;
+      color: var(--silver-dim);
+      line-height: 1.7;
+    }
+
+    .booking-detail-text strong {
+      display: block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--silver-light);
+      margin-bottom: 0.2rem;
+    }
+
+    /* Form */
+    .booking-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+    }
+
+    .form-group {
+      background: var(--dark);
+      padding: 0;
+      position: relative;
+    }
+
+    .form-group.full-width {
+      grid-column: 1 / -1;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--silver-dim);
+      padding: 1rem 1.2rem 0.4rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid var(--border);
+      color: var(--white);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 300;
+      padding: 0.4rem 1.2rem 1rem;
+      outline: none;
+      transition: border-color 0.3s;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+    .form-group select {
+      cursor: pointer;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23888' stroke-width='1.2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1.2rem center;
+      padding-right: 2.5rem;
+    }
+
+    .form-group select option {
+      background: var(--dark-3);
+      color: var(--white);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 110px;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--silver-dim);
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: rgba(136,136,136,0.4);
+    }
+
+    .form-group input[type="date"]::-webkit-calendar-picker-indicator {
+      filter: invert(0.5);
+      cursor: pointer;
+    }
+
+    .form-submit {
+      grid-column: 1 / -1;
+      background: var(--dark);
+      padding: 1.5rem 1.2rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .btn-submit {
+      width: 100%;
+      background: var(--silver);
+      color: var(--black);
+      border: none;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      padding: 1.1rem 2rem;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .btn-submit:hover {
+      background: var(--white);
+      transform: translateY(-1px);
+    }
+
+    .form-note {
+      font-size: 0.65rem;
+      color: rgba(136,136,136,0.5);
+      margin-top: 0.8rem;
+      text-align: center;
+      letter-spacing: 0.05em;
+    }
+
+    /* Success message */
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 3rem;
+    }
+
+    .form-success.show { display: block; }
+
+    .form-success h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--white);
+      margin-bottom: 0.8rem;
+    }
+
+    .form-success p {
+      font-size: 0.78rem;
+      color: var(--silver-dim);
+    }
+
+    /* ─── CONTACT ────────────────────────────────── */
+    #contact { background: var(--black); }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      margin-bottom: 4rem;
+    }
+
+    .contact-card {
+      background: var(--black);
+      padding: 2.5rem 2rem;
+      text-align: center;
+      transition: background 0.3s;
+    }
+
+    .contact-card:hover { background: var(--dark-2); }
+
+    .contact-icon {
+      width: 48px;
+      height: 48px;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      color: var(--silver);
+      transition: border-color 0.3s;
+    }
+
+    .contact-card:hover .contact-icon { border-color: var(--silver-dim); }
+
+    .contact-icon svg {
+      width: 18px;
+      height: 18px;
+      stroke: currentColor;
+      stroke-width: 1.2;
+      fill: none;
+    }
+
+    .contact-label {
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--silver-dim);
+      margin-bottom: 0.6rem;
+    }
+
+    .contact-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--white);
+      line-height: 1.4;
+    }
+
+    .contact-value a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .contact-value a:hover { color: var(--silver-light); }
+
+    .contact-hours {
+      text-align: center;
+      padding: 2.5rem;
+      border: 1px solid var(--border);
+    }
+
+    .contact-hours .overline { margin-bottom: 0.8rem; }
+
+    .contact-hours-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--silver-light);
+    }
+
+    /* ─── FOOTER ─────────────────────────────────── */
+    footer {
+      background: var(--dark);
+      border-top: 1px solid var(--border);
+      padding: 4rem 0 2rem;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 2rem;
+    }
+
+    .footer-brand .logo-top { font-size: 1rem; }
+    .footer-brand .logo-bottom { font-size: 0.45rem; }
+
+    .footer-tagline {
+      font-size: 0.72rem;
+      color: var(--silver-dim);
+      margin-top: 1rem;
+      font-style: italic;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .footer-links h4 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--silver-dim);
+      margin-bottom: 1.2rem;
+    }
+
+    .footer-links ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .footer-links a {
+      font-size: 0.75rem;
+      color: rgba(136,136,136,0.6);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover { color: var(--silver-light); }
+
+    .footer-social h4 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--silver-dim);
+      margin-bottom: 1.2rem;
+    }
+
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      font-size: 0.75rem;
+      color: rgba(136,136,136,0.6);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .social-link:hover { color: var(--silver-light); }
+
+    .social-link svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+    }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-copy {
+      font-size: 0.65rem;
+      color: rgba(136,136,136,0.35);
+      letter-spacing: 0.05em;
+    }
+
+    .footer-location {
+      font-size: 0.65rem;
+      color: rgba(136,136,136,0.35);
+      letter-spacing: 0.08em;
+    }
+
+    /* ─── ANIMATIONS ─────────────────────────────── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .fade-up-delay-1 { transition-delay: 0.1s; }
+    .fade-up-delay-2 { transition-delay: 0.2s; }
+    .fade-up-delay-3 { transition-delay: 0.3s; }
+    .fade-up-delay-4 { transition-delay: 0.4s; }
+    .fade-up-delay-5 { transition-delay: 0.5s; }
+
+    /* ─── RESPONSIVE ─────────────────────────────── */
+    @media (max-width: 960px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .why-grid { grid-template-columns: repeat(2, 1fr); }
+      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .about-visual { height: 300px; }
+      .booking-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+      .footer-social { grid-column: 1 / -1; }
+    }
+
+    @media (max-width: 640px) {
+      section { padding: 5rem 0; }
+      .services-grid { grid-template-columns: 1fr; }
+      .why-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(3, 200px); }
+      .booking-form { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .footer-top { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+      .hero-title { font-size: clamp(2.4rem, 12vw, 4rem); }
+      .about-circle-outer { width: 240px; height: 240px; }
+      .about-circle-inner { width: 170px; height: 170px; }
+      .about-circle-core { width: 100px; height: 100px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── NAV ──────────────────────────────────── -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a class="logo" href="#hero" onclick="scrollToSection('hero')">
+        <svg class="logo-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="50" r="49" fill="#0a0a0a" stroke="rgba(192,192,192,0.2)" stroke-width="0.8"/>
+          <!-- R drawn first = sits BEHIND the D where they overlap -->
+          <text x="15" y="65" font-family="Georgia,serif" font-size="54" font-style="italic" font-weight="700" fill="rgba(235,235,235,0.95)">R</text>
+          <!-- D drawn second = sits IN FRONT, covering R's descending tail -->
+          <text x="49" y="65" font-family="Georgia,serif" font-size="48" font-weight="700" fill="rgba(210,210,210,0.88)">D</text>
+          <line x1="20" y1="71" x2="80" y2="71" stroke="rgba(192,192,192,0.3)" stroke-width="0.5"/>
+          <text x="50" y="80" font-family="Montserrat,Arial,sans-serif" font-size="7" font-weight="600" fill="rgba(200,200,200,0.85)" text-anchor="middle" letter-spacing="2.2">RENAISSANCE</text>
+          <text x="50" y="89" font-family="Montserrat,Arial,sans-serif" font-size="5.2" font-weight="400" fill="rgba(150,150,150,0.7)" text-anchor="middle" letter-spacing="3">DETAILING</text>
+        </svg>
+        <div class="logo-wordmark">
+          <span class="logo-top">Renaissance</span>
+          <div class="logo-line"></div>
+          <span class="logo-bottom">Detailing</span>
+        </div>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#services" onclick="scrollToSection('services'); return false;">Services</a></li>
+        <li><a href="#about" onclick="scrollToSection('about'); return false;">About</a></li>
+        <li><a href="#gallery" onclick="scrollToSection('gallery'); return false;">Gallery</a></li>
+        <li><a href="#contact" onclick="scrollToSection('contact'); return false;">Contact</a></li>
+        <li><a href="#booking" class="nav-cta" onclick="scrollToSection('booking'); return false;">Book Now</a></li>
+      </ul>
+
+      <div class="hamburger" id="hamburger" onclick="toggleMobileMenu()">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#services" onclick="closeMobileMenu(); scrollToSection('services');">Services</a>
+    <a href="#about" onclick="closeMobileMenu(); scrollToSection('about');">About</a>
+    <a href="#gallery" onclick="closeMobileMenu(); scrollToSection('gallery');">Gallery</a>
+    <a href="#booking" onclick="closeMobileMenu(); scrollToSection('booking');">Booking</a>
+    <a href="#contact" onclick="closeMobileMenu(); scrollToSection('contact');">Contact</a>
+  </div>
+
+  <!-- ─── HERO ──────────────────────────────────── -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-shimmer"></div>
+    <div class="hero-lines">
+      <div class="hero-line"></div>
+      <div class="hero-line"></div>
+      <div class="hero-line"></div>
+      <div class="hero-line"></div>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-eyebrow">Sydney Mobile Detailing</div>
+      <h1 class="hero-title">
+        Elevate<br><em>Your Vehicle</em>
+      </h1>
+      <p class="hero-subtitle">
+        Sydney's premier mobile detailing &amp; ceramic coating specialists. Perfection delivered to your door.
+      </p>
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="scrollToSection('booking')">Book Now</button>
+        <button class="btn-ghost" onclick="scrollToSection('services')">Our Services</button>
+      </div>
+    </div>
+
+    <div class="hero-scroll">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ─── SERVICES ──────────────────────────────── -->
+  <section id="services">
+    <div class="container">
+      <div class="section-header fade-up">
+        <div class="overline">What We Offer</div>
+        <div class="divider"></div>
+        <h2 class="section-title">Our Services</h2>
+        <p class="section-subtitle">Every service is tailored to your vehicle's individual needs, delivered with precision and care.</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card fade-up fade-up-delay-1">
+          <div class="service-number">01</div>
+          <h3 class="service-name">Exterior Detail</h3>
+          <p class="service-desc">Full exterior wash, clay bar treatment, machine polish, and premium paint protection. Restore your vehicle's showroom finish.</p>
+          <span class="service-tag">Most Popular</span>
+        </div>
+        <div class="service-card fade-up fade-up-delay-2">
+          <div class="service-number">02</div>
+          <h3 class="service-name">Interior Detail</h3>
+          <p class="service-desc">Deep clean, vacuum, steam sanitisation, leather conditioning, and panel dressing. A pristine cabin environment.</p>
+          <span class="service-tag">Enquire</span>
+        </div>
+        <div class="service-card fade-up fade-up-delay-3">
+          <div class="service-number">03</div>
+          <h3 class="service-name">Paint Correction</h3>
+          <p class="service-desc">Single &amp; multi-stage machine polishing to eliminate swirl marks, scratches, and oxidation. Reveal the true depth of your paintwork.</p>
+          <span class="service-tag">Premium</span>
+        </div>
+        <div class="service-card fade-up fade-up-delay-1">
+          <div class="service-number">04</div>
+          <h3 class="service-name">Ceramic Coating</h3>
+          <p class="service-desc">Nano-ceramic protection that bonds with your paintwork, offering years of hydrophobic, UV-resistant, and self-cleaning defence.</p>
+          <span class="service-tag">Signature</span>
+        </div>
+        <div class="service-card fade-up fade-up-delay-2">
+          <div class="service-number">05</div>
+          <h3 class="service-name">Full Detail Package</h3>
+          <p class="service-desc">The complete Renaissance experience — interior and exterior transformation combined into one comprehensive, thorough package.</p>
+          <span class="service-tag">Best Value</span>
+        </div>
+        <div class="service-card fade-up fade-up-delay-3">
+          <div class="service-number">06</div>
+          <h3 class="service-name">Maintenance Wash</h3>
+          <p class="service-desc">Scheduled upkeep to preserve your ceramic coating or detail. Keep your vehicle in pristine condition between full services.</p>
+          <span class="service-tag">Ongoing</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── ABOUT ──────────────────────────────────── -->
+  <section id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text">
+          <div class="section-header fade-up">
+            <div class="overline">Our Story</div>
+            <div class="divider"></div>
+            <h2 class="section-title">Crafted for<br><em>Perfection</em></h2>
+          </div>
+          <div class="fade-up fade-up-delay-1">
+            <p>Renaissance Detailing is a <strong>Sydney-based, sole trader operation</strong> built on a singular obsession: bringing out the very best in every vehicle we touch. No shortcuts. No compromises.</p>
+            <p>As a mobile service, we come <strong>directly to you</strong> — whether that's your home, workplace, or anywhere across Sydney. Your time is valuable, and your vehicle deserves attention at your convenience.</p>
+            <p>From a precision maintenance wash to a full paint correction and ceramic coating, every job is approached with the same unwavering <strong>attention to detail</strong> and passion for the craft that defines the Renaissance name.</p>
+            <p>Flexible scheduling means we work around your life — <strong>available 7 days a week</strong>, tailored to your inquiry and timing.</p>
+          </div>
+          <div class="about-stats fade-up fade-up-delay-2">
+            <div class="stat-item">
+              <div class="stat-number">100%</div>
+              <div class="stat-label">Mobile Service</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">7</div>
+              <div class="stat-label">Days a Week</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">SYD</div>
+              <div class="stat-label">Wide Coverage</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">∞</div>
+              <div class="stat-label">Attention to Detail</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-visual fade-up fade-up-delay-2">
+          <div class="about-circle-outer"></div>
+          <div class="about-circle-inner"></div>
+          <svg src="logo.png" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="width:150px;height:150px;position:relative;z-index:2;">
+            <circle cx="50" cy="50" r="49" fill="#0a0a0a" stroke="rgba(192,192,192,0.25)" stroke-width="0.8"/>
+            <text x="15" y="65" font-family="Georgia,serif" font-size="54" font-style="italic" font-weight="700" fill="rgba(235,235,235,0.95)">R</text>
+            <text x="49" y="65" font-family="Georgia,serif" font-size="48" font-weight="700" fill="rgba(210,210,210,0.88)">D</text>
+            <line x1="20" y1="71" x2="80" y2="71" stroke="rgba(192,192,192,0.3)" stroke-width="0.5"/>
+            <text x="50" y="80" font-family="Montserrat,Arial,sans-serif" font-size="7" font-weight="600" fill="rgba(200,200,200,0.85)" text-anchor="middle" letter-spacing="2.2">RENAISSANCE</text>
+            <text x="50" y="89" font-family="Montserrat,Arial,sans-serif" font-size="5.2" font-weight="400" fill="rgba(150,150,150,0.7)" text-anchor="middle" letter-spacing="3">DETAILING</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── WHY CHOOSE US ──────────────────────────── -->
+  <section id="why">
+    <div class="container">
+      <div class="section-header fade-up">
+        <div class="overline">Why Renaissance</div>
+        <div class="divider"></div>
+        <h2 class="section-title">The Difference</h2>
+      </div>
+
+      <div class="why-grid">
+        <div class="why-item fade-up fade-up-delay-1">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          </div>
+          <h3 class="why-title">Mobile Service</h3>
+          <p class="why-desc">We come to you — home, office, or anywhere across Sydney. No drop-offs, no waiting rooms. Detailing on your terms.</p>
+        </div>
+        <div class="why-item fade-up fade-up-delay-2">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <h3 class="why-title">Flexible Scheduling</h3>
+          <p class="why-desc">Hours and days are built around your booking. Available 7 days a week — we adapt to your schedule, not the other way around.</p>
+        </div>
+        <div class="why-item fade-up fade-up-delay-3">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <h3 class="why-title">Premium Products</h3>
+          <p class="why-desc">We use only industry-leading detailing products and ceramic coatings. Your vehicle deserves nothing less than the finest.</p>
+        </div>
+        <div class="why-item fade-up fade-up-delay-1">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <h3 class="why-title">Attention to Detail</h3>
+          <p class="why-desc">Every panel, every surface, every crevice — treated with the meticulous care and precision the Renaissance name demands.</p>
+        </div>
+        <div class="why-item fade-up fade-up-delay-2">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3 class="why-title">Fully Insured</h3>
+          <p class="why-desc">Your vehicle is in safe hands. We operate with full insurance coverage so you can have complete peace of mind throughout every service.</p>
+        </div>
+        <div class="why-item fade-up fade-up-delay-3">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <h3 class="why-title">Trusted Sydney-Wide</h3>
+          <p class="why-desc">From the Eastern Suburbs to the Hills District — Renaissance serves all corners of Sydney with the same uncompromising standard.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── GALLERY ────────────────────────────────── -->
+  <section id="gallery">
+    <div class="container">
+      <div class="section-header fade-up">
+        <div class="overline">Our Work</div>
+        <div class="divider"></div>
+        <h2 class="section-title">Gallery</h2>
+        <p class="section-subtitle">Follow us on Instagram <a href="https://www.instagram.com/renaissancesyd/" target="_blank" style="color:var(--silver-light); text-decoration:none;">@renaissancesyd</a> to see our latest work.</p>
+      </div>
+
+      <div class="gallery-grid fade-up fade-up-delay-1">
+        <div class="gallery-item">
+          <div class="gallery-shimmer"></div>
+          <div class="gallery-overlay"><span class="gallery-watermark">Renaissance</span></div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-shimmer"></div>
+          <div class="gallery-overlay"><span class="gallery-watermark">Renaissance</span></div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-shimmer"></div>
+          <div class="gallery-overlay"><span class="gallery-watermark">Renaissance</span></div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-shimmer"></div>
+          <div class="gallery-overlay"><span class="gallery-watermark">Renaissance</span></div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-shimmer"></div>
+          <div class="gallery-overlay"><span class="gallery-watermark">Renaissance</span></div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-shimmer"></div>
+          <div class="gallery-overlay"><span class="gallery-watermark">Renaissance</span></div>
+        </div>
+      </div>
+
+      <div style="text-align:center; margin-top:2rem; fade-up">
+        <a href="https://www.instagram.com/renaissancesyd/" target="_blank" class="btn-ghost" style="display:inline-flex;">View on Instagram</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── BOOKING ────────────────────────────────── -->
+  <section id="booking">
+    <div class="container">
+      <div class="booking-grid">
+        <div class="booking-info fade-up">
+          <div class="section-header">
+            <div class="overline">Get in Touch</div>
+            <div class="divider"></div>
+            <h2 class="section-title">Request a<br><em>Booking</em></h2>
+          </div>
+          <p>Fill in the form and we'll get back to you promptly to confirm your booking details, pricing, and scheduling. All services are fully mobile across Sydney.</p>
+
+          <div class="booking-detail">
+            <div class="booking-detail-item">
+              <div class="booking-detail-icon">
+                <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.1 2.18 2 2 0 012.09 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.18 6.18l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+              </div>
+              <div class="booking-detail-text">
+                <strong>Phone</strong>
+                0400 000 000
+              </div>
+            </div>
+            <div class="booking-detail-item">
+              <div class="booking-detail-icon">
+                <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div class="booking-detail-text">
+                <strong>Email</strong>
+                info@renaissancedetailing.com.au
+              </div>
+            </div>
+            <div class="booking-detail-item">
+              <div class="booking-detail-icon">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+              </div>
+              <div class="booking-detail-text">
+                <strong>Service Area</strong>
+                Sydney-wide · Fully Mobile
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="fade-up fade-up-delay-2">
+          <div class="booking-form" id="bookingForm">
+            <div class="form-group">
+              <label for="fname">Full Name</label>
+              <input type="text" id="fname" name="fname" placeholder="John Smith" required />
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" placeholder="04XX XXX XXX" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="you@email.com" required />
+            </div>
+            <div class="form-group">
+              <label for="vehicle">Vehicle Make &amp; Model</label>
+              <input type="text" id="vehicle" name="vehicle" placeholder="e.g. BMW M3, Toyota Camry" required />
+            </div>
+            <div class="form-group full-width">
+              <label for="service">Service Required</label>
+              <select id="service" name="service" required>
+                <option value="" disabled selected>Select a service…</option>
+                <option>Exterior Detail</option>
+                <option>Interior Detail</option>
+                <option>Paint Correction</option>
+                <option>Ceramic Coating</option>
+                <option>Full Detail Package</option>
+                <option>Maintenance Wash</option>
+                <option>Not sure — please advise</option>
+              </select>
+            </div>
+            <div class="form-group full-width">
+              <label for="date">Preferred Date</label>
+              <input type="date" id="date" name="date" />
+            </div>
+            <div class="form-group full-width">
+              <label for="notes">Additional Notes</label>
+              <textarea id="notes" name="notes" placeholder="Any details about your vehicle's condition, specific concerns, or your location…"></textarea>
+            </div>
+            <div class="form-submit">
+              <button type="button" class="btn-submit" onclick="submitForm()">Request a Booking</button>
+              <p class="form-note">We'll respond within 24 hours to confirm your booking and provide a quote.</p>
+            </div>
+          </div>
+
+          <div class="form-success" id="formSuccess">
+            <h3>Thank You</h3>
+            <p>Your booking request has been received. We'll be in touch within 24 hours to confirm your details and provide a tailored quote.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CONTACT ────────────────────────────────── -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-header fade-up" style="text-align:center;">
+        <div class="overline">Reach Us</div>
+        <div class="divider" style="margin:1.5rem auto;"></div>
+        <h2 class="section-title">Contact</h2>
+      </div>
+
+      <div class="contact-grid fade-up fade-up-delay-1">
+        <div class="contact-card">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.1 2.18 2 2 0 012.09 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.18 6.18l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          </div>
+          <div class="contact-label">Phone</div>
+          <div class="contact-value"><a href="tel:0400000000">0400 000 000</a></div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div class="contact-label">Email</div>
+          <div class="contact-value"><a href="mailto:info@renaissancedetailing.com.au">info@renaissancedetailing.com.au</a></div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div class="contact-label">Service Area</div>
+          <div class="contact-value">Sydney Wide<br><span style="font-size:0.75rem; color:var(--silver-dim); font-family:Montserrat,sans-serif; font-weight:300;">Mobile Service</span></div>
+        </div>
+      </div>
+
+      <div class="contact-hours fade-up fade-up-delay-2">
+        <div class="overline">Availability</div>
+        <p class="contact-hours-text" style="margin-top:0.8rem;">By Appointment &mdash; 7 Days a Week</p>
+        <p style="font-size:0.72rem; color:var(--silver-dim); margin-top:0.5rem;">Flexible scheduling to suit your needs. Hours vary by booking.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ──────────────────────────────────── -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="logo" style="cursor:default;">
+            <svg class="logo-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="50" cy="50" r="49" fill="#0d0d0d" stroke="rgba(192,192,192,0.15)" stroke-width="1"/>
+              <text x="22" y="62" font-family="Georgia, 'Times New Roman', serif" font-size="44" font-weight="700" fill="white" letter-spacing="-1">R</text>
+              <text x="53" y="62" font-family="Georgia, 'Times New Roman', serif" font-size="38" font-weight="400" fill="rgba(210,210,210,0.92)" letter-spacing="0">D</text>
+              <line x1="18" y1="68" x2="82" y2="68" stroke="rgba(192,192,192,0.35)" stroke-width="0.6"/>
+              <text x="50" y="78" font-family="'Montserrat', Arial, sans-serif" font-size="7.2" font-weight="600" fill="rgba(200,200,200,0.9)" text-anchor="middle" letter-spacing="2.5">RENAISSANCE</text>
+              <text x="50" y="88" font-family="'Montserrat', Arial, sans-serif" font-size="5.5" font-weight="400" fill="rgba(160,160,160,0.7)" text-anchor="middle" letter-spacing="3.2">DETAILING</text>
+            </svg>
+            <div class="logo-wordmark">
+              <span class="logo-top">Renaissance</span>
+              <div class="logo-line"></div>
+              <span class="logo-bottom">Detailing</span>
+            </div>
+          </div>
+          <p class="footer-tagline">Perfection in Every Detail.</p>
+        </div>
+
+        <div class="footer-links">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="#services" onclick="scrollToSection('services'); return false;">Services</a></li>
+            <li><a href="#about" onclick="scrollToSection('about'); return false;">About</a></li>
+            <li><a href="#gallery" onclick="scrollToSection('gallery'); return false;">Gallery</a></li>
+            <li><a href="#booking" onclick="scrollToSection('booking'); return false;">Booking</a></li>
+            <li><a href="#contact" onclick="scrollToSection('contact'); return false;">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-social">
+          <h4>Follow Us</h4>
+          <a class="social-link" href="https://www.instagram.com/renaissancesyd/" target="_blank">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+            @renaissancesyd
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span class="footer-copy">&copy; 2024 Renaissance Detailing. All rights reserved.</span>
+        <span class="footer-location">Sydney, New South Wales, Australia</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ─── Smooth scroll ────────────────────────────
+    function scrollToSection(id) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const navH = document.getElementById('navbar').offsetHeight;
+      const top = el.getBoundingClientRect().top + window.scrollY - navH;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+
+    // ─── Nav scroll effect ────────────────────────
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // ─── Mobile menu ──────────────────────────────
+    function toggleMobileMenu() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+      document.getElementById('hamburger').classList.toggle('open');
+    }
+    function closeMobileMenu() {
+      document.getElementById('mobileMenu').classList.remove('open');
+      document.getElementById('hamburger').classList.remove('open');
+    }
+
+    // ─── Scroll animations ────────────────────────
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // ─── Form submission (demo) ───────────────────
+    function submitForm() {
+      const fields = ['fname', 'phone', 'email', 'vehicle', 'service'];
+      let valid = true;
+      fields.forEach(id => {
+        const el = document.getElementById(id);
+        if (!el.value.trim()) {
+          el.style.borderBottomColor = 'rgba(200,100,100,0.6)';
+          valid = false;
+        } else {
+          el.style.borderBottomColor = '';
+        }
+      });
+      if (!valid) return;
+      document.getElementById('bookingForm').style.display = 'none';
+      document.getElementById('formSuccess').classList.add('show');
+    }
+
+    // ─── Set min date for date picker ────────────
+    const dateInput = document.getElementById('date');
+    if (dateInput) {
+      const today = new Date().toISOString().split('T')[0];
+      dateInput.min = today;
+    }
+  </script>
+</body>
+</html>
