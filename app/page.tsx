@@ -564,12 +564,12 @@ function HomePage({ navigate }: { navigate: (p: Page) => void }) {
         {/* Logo */}
         <FadeIn className="flex flex-col items-center text-center gap-0">
           <LogoMark size={110} />
-          <div className="mt-8">
+          <div className="mt-10">
             <GooeyText
               texts={["Renaissance Detailing", "Sydney Mobile", "Ceramic Coating", "By Appointment"]}
               morphTime={1.2}
               cooldownTime={2.5}
-              className="h-16 w-[480px] max-w-[92vw]"
+              className="h-20 w-[480px] max-w-[92vw]"
               textClassName="font-[family-name:var(--font-playfair)] text-[2rem] font-bold tracking-[0.18em] uppercase text-white w-full"
             />
           </div>

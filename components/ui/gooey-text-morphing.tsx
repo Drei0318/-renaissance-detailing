@@ -27,6 +27,15 @@ export function GooeyText({
     let morph = 0;
     let cooldown = cooldownTime;
 
+    // Show first text immediately on mount
+    if (text1Ref.current && text2Ref.current) {
+      text1Ref.current.textContent = texts[0];
+      text2Ref.current.textContent = texts[1 % texts.length];
+      text2Ref.current.style.opacity = "100%";
+      text1Ref.current.style.opacity = "0%";
+      textIndex = 0;
+    }
+
     const setMorph = (fraction: number) => {
       if (text1Ref.current && text2Ref.current) {
         text2Ref.current.style.filter = `blur(${Math.min(8 / fraction - 8, 100)}px)`;
