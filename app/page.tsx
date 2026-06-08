@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect } from "react"
 import NextImage from "next/image"
 import HeroBackground from "@/components/ui/demo"
 
@@ -21,10 +21,13 @@ function LogoMark({ size = 44 }: { size?: number }) {
 
 // ─── Fade wrapper ──────────────────────────────────────────────────────────────
 function FadeIn({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) {
-  const [visible, setVisible] = useState(false)
-  useEffect(() => { const t = setTimeout(() => setVisible(true), delay * 1000 + 20); return () => clearTimeout(t) }, [delay])
   return (
-    <div className={className} style={{ opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(20px)", transition: `opacity 0.6s ease, transform 0.6s ease` }}>
+    <div
+      className={className}
+      style={{
+        animation: `fadeUp 0.6s ease ${delay}s both`,
+      }}
+    >
       {children}
     </div>
   )
