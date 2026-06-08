@@ -309,13 +309,13 @@ function GalleryPage({ navigate }: { navigate: (p: Page) => void }) {
               "/ceramic-5yr.jpg",
               "/maintenance.jpg",
             ].map((src, i) => (
-              <div key={i} className="relative overflow-hidden aspect-square group">
+              <div key={i} className="relative overflow-hidden aspect-square group [&_span]:block [&_span]:w-full [&_span]:h-full">
                 <ImageZoom
                   src={src}
                   alt={`Renaissance Detailing work ${i + 1}`}
                   width={800}
                   height={800}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 brightness-75 group-hover:brightness-100 !rounded-none"
+                  className="!w-full !h-full object-cover transition-transform duration-700 group-hover:scale-105 brightness-75 group-hover:brightness-100 !rounded-none"
                 />
               </div>
             ))}

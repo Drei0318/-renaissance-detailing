@@ -14,7 +14,7 @@
 
 @layer components {
   [data-rmiz] {
-    @apply block relative;
+    @apply block relative w-full h-full;
   }
   [data-rmiz-ghost] {
     @apply pointer-events-none absolute;
