@@ -535,8 +535,8 @@ function HomePage({ navigate }: { navigate: (p: Page) => void }) {
               texts={["Renaissance", "Detailing", "Sydney", "Mobile", "Ceramic"]}
               morphTime={1.2}
               cooldownTime={2}
-              className="h-10 w-72"
-              textClassName="font-[family-name:var(--font-playfair)] text-[1.35rem] font-semibold tracking-[0.38em] uppercase text-white w-full"
+              className="h-14 w-80"
+              textClassName="font-[family-name:var(--font-playfair)] text-3xl font-bold tracking-[0.22em] uppercase text-white w-full"
             />
             <div className="w-24 h-px mt-1" style={{ background: "linear-gradient(90deg, transparent, rgba(192,192,192,0.5), transparent)" }} />
             <span className="font-[family-name:var(--font-montserrat)] text-[0.48rem] tracking-[0.7em] uppercase text-[#555]">Detailing</span>
