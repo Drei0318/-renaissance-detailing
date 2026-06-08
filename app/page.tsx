@@ -562,9 +562,9 @@ function HomePage({ navigate }: { navigate: (p: Page) => void }) {
       <div className="relative z-10 flex flex-col items-center px-8 w-full max-w-3xl">
 
         {/* Logo */}
-        <FadeIn className="flex flex-col items-center text-center">
-          <LogoMark size={88} />
-          <div className="mt-6 flex flex-col items-center gap-[4px]">
+        <FadeIn className="flex flex-col items-center text-center gap-0">
+          <LogoMark size={110} />
+          <div className="mt-8">
             <GooeyText
               texts={["Renaissance Detailing", "Sydney Mobile", "Ceramic Coating", "By Appointment"]}
               morphTime={1.2}
