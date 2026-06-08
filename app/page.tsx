@@ -569,8 +569,8 @@ function HomePage({ navigate }: { navigate: (p: Page) => void }) {
               texts={["Renaissance Detailing", "Sydney Mobile", "Ceramic Coating", "By Appointment"]}
               morphTime={1.2}
               cooldownTime={2.5}
-              className="h-14 w-[420px] max-w-[90vw]"
-              textClassName="font-[family-name:var(--font-playfair)] text-2xl font-bold tracking-[0.18em] uppercase text-white w-full"
+              className="h-16 w-[480px] max-w-[92vw]"
+              textClassName="font-[family-name:var(--font-montserrat)] text-[1.6rem] font-black tracking-[0.14em] uppercase text-white w-full"
             />
           </div>
         </FadeIn>

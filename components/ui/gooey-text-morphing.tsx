@@ -95,7 +95,7 @@ export function GooeyText({
               values="1 0 0 0 0
                       0 1 0 0 0
                       0 0 1 0 0
-                      0 0 0 255 -160"
+                      0 0 0 255 -120"
             />
           </filter>
         </defs>
