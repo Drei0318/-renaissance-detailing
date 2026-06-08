@@ -570,7 +570,7 @@ function HomePage({ navigate }: { navigate: (p: Page) => void }) {
               morphTime={1.2}
               cooldownTime={2.5}
               className="h-16 w-[480px] max-w-[92vw]"
-              textClassName="font-[family-name:var(--font-montserrat)] text-[1.6rem] font-black tracking-[0.14em] uppercase text-white w-full"
+              textClassName="font-[family-name:var(--font-playfair)] text-[2rem] font-bold tracking-[0.18em] uppercase text-white w-full"
             />
           </div>
         </FadeIn>
