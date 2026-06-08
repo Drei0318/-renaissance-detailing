@@ -388,24 +388,7 @@ function GalleryPage({ navigate }: { navigate: (p: Page) => void }) {
           <ExpandingCards items={GALLERY_CARDS} defaultActiveIndex={0} className="mb-8" />
         </FadeIn>
 
-        {/* Zoomable photo grid */}
         <FadeIn delay={0.18}>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-0.5 mb-6">
-            {["/work-3.jpg", "/work-4.jpg", "/ceramic-5yr.jpg", "/hero.jpg"].map((src, i) => (
-              <div key={i} className="relative overflow-hidden aspect-square group [&_span]:block [&_span]:w-full [&_span]:h-full">
-                <ImageZoom
-                  src={src}
-                  alt={`Renaissance Detailing work ${i + 1}`}
-                  width={600}
-                  height={600}
-                  className="!w-full !h-full object-cover brightness-75 group-hover:brightness-100 transition-all duration-500 !rounded-none"
-                />
-              </div>
-            ))}
-          </div>
-        </FadeIn>
-
-        <FadeIn delay={0.22}>
           <div className="text-center mt-2 mb-4">
             <a
               href="https://www.instagram.com/renaissancesyd/"
