@@ -282,7 +282,22 @@ function GalleryPage({ navigate }: { navigate: (p: Page) => void }) {
           </div>
         </FadeIn>
 
-        <FadeIn delay={0.1}>
+        {/* Video — full width autoplay */}
+        <FadeIn delay={0.08}>
+          <div className="w-full overflow-hidden mb-0.5">
+            <video
+              src="/gloss.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="w-full object-cover max-h-[70vh]"
+            />
+          </div>
+        </FadeIn>
+
+        {/* Photo grid */}
+        <FadeIn delay={0.14}>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-0.5">
             {[
               "/hero.jpg",
@@ -290,6 +305,7 @@ function GalleryPage({ navigate }: { navigate: (p: Page) => void }) {
               "/work-3.jpg",
               "/work-4.jpg",
               "/ceramic-2yr.jpg",
+              "/ceramic-5yr.jpg",
               "/maintenance.jpg",
             ].map((src, i) => (
               <div key={i} className="relative overflow-hidden aspect-square group cursor-pointer">
@@ -300,7 +316,7 @@ function GalleryPage({ navigate }: { navigate: (p: Page) => void }) {
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 brightness-75 group-hover:brightness-90"
                 />
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-400">
-                  <span className="font-[family-name:var(--font-playfair)] text-[0.7rem] tracking-[0.4em] uppercase text-white/60">Renaissance</span>
+                  <span className="font-[family-name:var(--font-playfair)] italic text-[0.7rem] tracking-[0.4em] uppercase text-white/60">Renaissance</span>
                 </div>
               </div>
             ))}
