@@ -198,57 +198,91 @@ function ServicesPage({ navigate }: { navigate: (p: Page) => void }) {
 
 function AboutPage({ navigate }: { navigate: (p: Page) => void }) {
   return (
-    <PageView>
-      <div className="px-6 md:px-14 py-14 max-w-5xl mx-auto">
+    <PageView className="overflow-y-auto">
+      {/* ── Full-bleed hero image with text overlay ── */}
+      <div className="relative w-full h-[60vh] min-h-[340px] overflow-hidden">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/work-4.jpg" alt="Renaissance Detailing" className="w-full h-full object-cover brightness-40" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/80" />
 
-        <FadeIn>
+        {/* Back button */}
+        <div className="absolute top-6 left-6 md:left-10">
           <BackBtn onClick={() => navigate("home")} />
-        </FadeIn>
+        </div>
 
-        {/* Hero statement */}
+        {/* Overlay text */}
+        <div className="absolute bottom-0 left-0 px-6 md:px-14 pb-10">
+          <p className="font-[family-name:var(--font-montserrat)] text-[0.52rem] tracking-[0.35em] uppercase text-white/40 mb-3">Sydney Mobile Detailing</p>
+          <h2 className="font-[family-name:var(--font-playfair)] text-5xl md:text-7xl italic text-white leading-[1.1]">
+            No shortcuts.<br />No compromises.
+          </h2>
+        </div>
+      </div>
+
+      <div className="max-w-5xl mx-auto px-6 md:px-14">
+
+        {/* ── Intro split ── */}
         <FadeIn delay={0.05}>
-          <div className="mt-10 mb-16 border-l-2 border-white/10 pl-6 md:pl-10">
-            <p className="font-[family-name:var(--font-playfair)] text-3xl md:text-5xl text-white/90 leading-[1.3] italic">
-              No shortcuts.<br />No compromises.
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 py-16 border-b border-white/[0.06]">
+            <p className="font-[family-name:var(--font-playfair)] text-2xl md:text-3xl text-white/80 leading-[1.5] italic">
+              A Sydney-based sole trader built on one obsession — bringing out the very best in every vehicle we touch.
             </p>
+            <div className="flex flex-col justify-center gap-5 text-[0.82rem] text-[#555] leading-[2]">
+              <p>We come directly to you — whether that&apos;s your home, workplace, or anywhere across Sydney. Your time matters, and your car deserves attention on your terms.</p>
+              <p>From a maintenance wash to ceramic coating, every job gets the same <span className="text-[#999]">unwavering attention to detail</span> the Renaissance name demands. Available 7 days a week, we work around your life.</p>
+            </div>
           </div>
         </FadeIn>
 
-        {/* Two-column text block */}
+        {/* ── Big stats ── */}
         <FadeIn delay={0.1}>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 mb-16 text-[0.82rem] text-[#555] leading-[2]">
-            <p>Renaissance Detailing is a Sydney-based sole trader operation built on one obsession — bringing out the very best in every vehicle we touch. We come directly to you, whether that&apos;s your home, workplace, or anywhere across the city.</p>
-            <p>From a maintenance wash to multi-stage paint correction and ceramic coating, every job gets the same level of <span className="text-[#999]">unwavering care</span>. Available 7 days a week, we work around your schedule — not the other way around.</p>
-          </div>
-        </FadeIn>
-
-        {/* Pull stat */}
-        <FadeIn delay={0.15}>
-          <div className="flex items-center gap-6 md:gap-12 mb-16 py-10 border-y border-white/[0.06]">
-            {[["Mobile", "100% Sydney-wide"], ["Hours", "7 days a week"], ["Service", "Fully mobile"]].map(([label, val]) => (
-              <div key={label} className="flex flex-col gap-1">
-                <span className="font-[family-name:var(--font-playfair)] text-2xl md:text-3xl text-white/80">{val}</span>
-                <span className="font-[family-name:var(--font-montserrat)] text-[0.45rem] tracking-[0.25em] uppercase text-[#333]">{label}</span>
+          <div className="grid grid-cols-3 gap-0 py-14 border-b border-white/[0.06]">
+            {[
+              { num: "100%", label: "Mobile Service" },
+              { num: "7",    label: "Days a Week" },
+              { num: "SYD",  label: "Wide Coverage" },
+            ].map(({ num, label }) => (
+              <div key={label} className="flex flex-col items-center text-center px-4 border-r border-white/[0.06] last:border-r-0">
+                <span className="font-[family-name:var(--font-playfair)] text-5xl md:text-7xl text-white/80 leading-none">{num}</span>
+                <span className="font-[family-name:var(--font-montserrat)] text-[0.45rem] tracking-[0.3em] uppercase text-[#444] mt-3">{label}</span>
               </div>
             ))}
           </div>
         </FadeIn>
 
-        {/* Why list — two columns, no borders, airy */}
-        <FadeIn delay={0.2}>
-          <p className="font-[family-name:var(--font-montserrat)] text-[0.6rem] tracking-[0.35em] uppercase text-[#888] mb-8">Why Renaissance</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-8">
+        {/* ── Photo + quote split ── */}
+        <FadeIn delay={0.12}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-0 py-14 border-b border-white/[0.06]">
+            <div className="overflow-hidden aspect-[4/3] md:aspect-auto md:min-h-[320px]">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/work-1.jpg" alt="Detailing work" className="w-full h-full object-cover brightness-75 hover:brightness-90 transition-all duration-700" />
+            </div>
+            <div className="flex flex-col justify-center px-0 md:px-12 pt-8 md:pt-0">
+              <p className="font-[family-name:var(--font-montserrat)] text-[0.48rem] tracking-[0.3em] uppercase text-[#444] mb-6">The Process</p>
+              <p className="font-[family-name:var(--font-playfair)] text-xl md:text-2xl italic text-white/70 leading-[1.6] mb-6">
+                &ldquo;Every panel, every surface, every crevice — treated with the same exacting care.&rdquo;
+              </p>
+              <p className="text-[0.78rem] text-[#444] leading-[1.9]">We use only industry-leading products and take time to understand each vehicle individually. No two details are the same — every job is approached fresh.</p>
+            </div>
+          </div>
+        </FadeIn>
+
+        {/* ── Why list ── */}
+        <FadeIn delay={0.16}>
+          <p className="font-[family-name:var(--font-montserrat)] text-[0.6rem] tracking-[0.35em] uppercase text-[#888] mt-14 mb-8">Why Renaissance</p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/[0.05] mb-14">
             {WHY_ITEMS.map((item) => (
-              <div key={item.title} className="group">
-                <h4 className="font-[family-name:var(--font-playfair)] text-lg text-white/70 group-hover:text-white transition-colors duration-300 mb-1">{item.title}</h4>
+              <div key={item.title} className="group bg-transparent hover:bg-white/[0.02] transition-colors p-6">
+                <h4 className="font-[family-name:var(--font-playfair)] text-lg text-white/70 group-hover:text-white transition-colors duration-300 mb-2">{item.title}</h4>
                 <p className="text-[0.72rem] text-[#444] leading-[1.8]">{item.desc}</p>
               </div>
             ))}
           </div>
         </FadeIn>
 
-        <FadeIn delay={0.28}>
-          <div className="mt-14">
+        {/* ── CTA ── */}
+        <FadeIn delay={0.2}>
+          <div className="pb-16">
             <button
               onClick={() => navigate("booking")}
               className="group flex items-center gap-3 text-[0.58rem] tracking-[0.4em] uppercase text-[#555] hover:text-[#c0c0c0] transition-colors duration-300"
