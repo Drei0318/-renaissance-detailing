@@ -566,14 +566,12 @@ function HomePage({ navigate }: { navigate: (p: Page) => void }) {
           <LogoMark size={88} />
           <div className="mt-6 flex flex-col items-center gap-[4px]">
             <GooeyText
-              texts={["Renaissance", "Detailing", "Sydney", "Mobile", "Ceramic"]}
+              texts={["Renaissance Detailing", "Sydney Mobile", "Ceramic Coating", "By Appointment"]}
               morphTime={1.2}
-              cooldownTime={2}
-              className="h-14 w-80"
-              textClassName="font-[family-name:var(--font-playfair)] text-3xl font-bold tracking-[0.22em] uppercase text-white w-full"
+              cooldownTime={2.5}
+              className="h-14 w-[420px] max-w-[90vw]"
+              textClassName="font-[family-name:var(--font-playfair)] text-2xl font-bold tracking-[0.18em] uppercase text-white w-full"
             />
-            <div className="w-24 h-px mt-1" style={{ background: "linear-gradient(90deg, transparent, rgba(192,192,192,0.5), transparent)" }} />
-            <span className="font-[family-name:var(--font-montserrat)] text-[0.48rem] tracking-[0.7em] uppercase text-[#555]">Detailing</span>
           </div>
         </FadeIn>
 
