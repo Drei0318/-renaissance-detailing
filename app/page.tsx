@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import HeroBackground from "@/components/ui/demo"
 import { ImageZoom } from "@/components/ui/zoomable-image"
+import { GooeyText } from "@/components/ui/gooey-text-morphing"
 
 type Page = "home" | "services" | "about" | "gallery" | "contact" | "booking"
 
@@ -530,8 +531,14 @@ function HomePage({ navigate }: { navigate: (p: Page) => void }) {
         <FadeIn className="flex flex-col items-center text-center">
           <LogoMark size={88} />
           <div className="mt-6 flex flex-col items-center gap-[4px]">
-            <span className="font-[family-name:var(--font-playfair)] text-[1.35rem] font-semibold tracking-[0.38em] uppercase text-white leading-none">Renaissance</span>
-            <div className="w-24 h-px my-[5px]" style={{ background: "linear-gradient(90deg, transparent, rgba(192,192,192,0.5), transparent)" }} />
+            <GooeyText
+              texts={["Renaissance", "Detailing", "Sydney", "Mobile", "Ceramic"]}
+              morphTime={1.2}
+              cooldownTime={2}
+              className="h-10 w-72"
+              textClassName="font-[family-name:var(--font-playfair)] text-[1.35rem] font-semibold tracking-[0.38em] uppercase text-white w-full"
+            />
+            <div className="w-24 h-px mt-1" style={{ background: "linear-gradient(90deg, transparent, rgba(192,192,192,0.5), transparent)" }} />
             <span className="font-[family-name:var(--font-montserrat)] text-[0.48rem] tracking-[0.7em] uppercase text-[#555]">Detailing</span>
           </div>
         </FadeIn>
