@@ -158,38 +158,34 @@ function ServicesPage({ navigate }: { navigate: (p: Page) => void }) {
           <p className="text-[0.65rem] text-[#444] tracking-[0.15em] max-w-[180px] text-right leading-relaxed">Tailored to your vehicle.<br />Delivered across Sydney.</p>
         </FadeIn>
 
-        <div className="flex flex-col">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/[0.06]">
           {SERVICES.map((svc, i) => (
-            <FadeIn key={svc.num} delay={i * 0.04}>
+            <FadeIn key={svc.num} delay={i * 0.06}>
               <button
                 onClick={() => navigate("booking")}
-                className="group text-left border-t border-white/[0.06] py-6 md:py-8 grid grid-cols-[1fr_auto] gap-6 md:gap-10 hover:border-white/20 transition-all duration-500 w-full"
+                className="group text-left w-full flex flex-col overflow-hidden hover:bg-white/[0.02] transition-colors duration-500"
               >
-                <div className="flex gap-6 md:gap-10 items-center">
-                  {/* Photo thumbnail */}
-                  <div className="shrink-0 w-20 h-20 md:w-28 md:h-28 overflow-hidden">
-                    <img
-                      src={svc.img}
-                      alt={svc.name}
-                      className="w-full h-full object-cover brightness-75 group-hover:brightness-100 group-hover:scale-105 transition-all duration-500"
-                    />
-                  </div>
-
-                  {/* Text */}
-                  <div>
-                    <h3 className="font-[family-name:var(--font-playfair)] text-2xl md:text-3xl text-white/60 group-hover:text-white transition-colors duration-400 mb-2 leading-snug">{svc.name}</h3>
-                    <p className="text-[0.75rem] text-[#444] group-hover:text-[#666] leading-[1.9] transition-colors duration-400 max-w-lg">{svc.desc}</p>
-                  </div>
+                {/* Photo */}
+                <div className="w-full aspect-[16/9] overflow-hidden">
+                  <img
+                    src={svc.img}
+                    alt={svc.name}
+                    className="w-full h-full object-cover brightness-60 group-hover:brightness-90 group-hover:scale-105 transition-all duration-700"
+                  />
                 </div>
 
-                <div className="flex flex-col items-end justify-between shrink-0 pt-1">
-                  <span className="font-[family-name:var(--font-montserrat)] text-[0.42rem] tracking-[0.25em] uppercase text-[#2a2a2a] group-hover:text-[#555] transition-colors">{svc.tag}</span>
-                  <span className="text-white/10 group-hover:text-white/40 transition-colors duration-400 text-lg">→</span>
+                {/* Text */}
+                <div className="p-6 md:p-8 flex-1 flex flex-col gap-3">
+                  <div className="flex items-start justify-between gap-4">
+                    <h3 className="font-[family-name:var(--font-playfair)] text-2xl text-white/70 group-hover:text-white transition-colors duration-300 leading-snug">{svc.name}</h3>
+                    <span className="font-[family-name:var(--font-montserrat)] text-[0.42rem] tracking-[0.22em] uppercase text-[#333] group-hover:text-[#666] transition-colors shrink-0 pt-1">{svc.tag}</span>
+                  </div>
+                  <p className="text-[0.75rem] text-[#444] group-hover:text-[#666] leading-[1.9] transition-colors duration-300">{svc.desc}</p>
+                  <span className="text-white/10 group-hover:text-white/40 transition-colors duration-400 text-sm mt-auto">Book →</span>
                 </div>
               </button>
             </FadeIn>
           ))}
-          <div className="border-t border-white/[0.06]" />
         </div>
       </div>
     </PageView>
