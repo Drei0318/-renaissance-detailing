@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react"
+import NextImage from "next/image"
 import HeroBackground from "@/components/ui/demo"
 
 type Page = "home" | "services" | "about" | "gallery" | "contact" | "booking"
@@ -8,13 +9,12 @@ type Page = "home" | "services" | "about" | "gallery" | "contact" | "booking"
 // ─── Logo ──────────────────────────────────────────────────────────────────────
 function LogoMark({ size = 44 }: { size?: number }) {
   return (
-    <img
+    <NextImage
       src="/logo.png"
       alt="Renaissance Detailing"
       width={size}
       height={size}
       className="flex-shrink-0 object-contain"
-      style={{ width: size, height: size }}
     />
   )
 }
@@ -288,10 +288,11 @@ function GalleryPage({ navigate }: { navigate: (p: Page) => void }) {
               "/maintenance.jpg",
             ].map((src, i) => (
               <div key={i} className="relative overflow-hidden aspect-square group cursor-pointer">
-                <img
+                <NextImage
                   src={src}
                   alt={`Renaissance Detailing work ${i + 1}`}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 brightness-75 group-hover:brightness-90"
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-105 brightness-75 group-hover:brightness-90"
                 />
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-400">
                   <span className="font-[family-name:var(--font-playfair)] text-[0.7rem] tracking-[0.4em] uppercase text-white/60">Renaissance</span>
