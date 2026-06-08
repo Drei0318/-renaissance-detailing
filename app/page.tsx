@@ -8,14 +8,14 @@ type Page = "home" | "services" | "about" | "gallery" | "contact" | "booking"
 // ─── Logo ──────────────────────────────────────────────────────────────────────
 function LogoMark({ size = 44 }: { size?: number }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" className="flex-shrink-0">
-      <circle cx="50" cy="50" r="49" fill="#0a0a0a" stroke="rgba(192,192,192,0.2)" strokeWidth="0.8" />
-      <text x="15" y="65" fontFamily="Georgia,serif" fontSize="54" fontStyle="italic" fontWeight="700" fill="rgba(235,235,235,0.95)">R</text>
-      <text x="49" y="65" fontFamily="Georgia,serif" fontSize="48" fontWeight="700" fill="rgba(210,210,210,0.88)">D</text>
-      <line x1="20" y1="71" x2="80" y2="71" stroke="rgba(192,192,192,0.3)" strokeWidth="0.5" />
-      <text x="50" y="80" fontFamily="Montserrat,Arial,sans-serif" fontSize="7" fontWeight="600" fill="rgba(200,200,200,0.85)" textAnchor="middle" letterSpacing="2.2">RENAISSANCE</text>
-      <text x="50" y="89" fontFamily="Montserrat,Arial,sans-serif" fontSize="5.2" fontWeight="400" fill="rgba(150,150,150,0.7)" textAnchor="middle" letterSpacing="3">DETAILING</text>
-    </svg>
+    <img
+      src="/logo.png"
+      alt="Renaissance Detailing"
+      width={size}
+      height={size}
+      className="flex-shrink-0 object-contain"
+      style={{ width: size, height: size }}
+    />
   )
 }
 
@@ -280,12 +280,12 @@ function GalleryPage({ navigate }: { navigate: (p: Page) => void }) {
         <FadeIn delay={0.1}>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-0.5">
             {[
-              "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=640&q=80",
-              "https://images.unsplash.com/photo-1568844293986-8d0400bd4745?w=640&q=80",
-              "https://images.unsplash.com/photo-1607860108855-64acf2078ed9?w=640&q=80",
-              "https://images.unsplash.com/photo-1502877338535-766e1452684a?w=640&q=80",
-              "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=640&q=80",
-              "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=640&q=80",
+              "/hero.jpg",
+              "/work-1.jpg",
+              "/work-3.jpg",
+              "/work-4.jpg",
+              "/ceramic-2yr.jpg",
+              "/maintenance.jpg",
             ].map((src, i) => (
               <div key={i} className="relative overflow-hidden aspect-square group cursor-pointer">
                 <img
