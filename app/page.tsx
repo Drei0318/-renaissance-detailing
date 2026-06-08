@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import HeroBackground from "@/components/ui/demo"
+import { ImageZoom } from "@/components/ui/zoomable-image"
 
 type Page = "home" | "services" | "about" | "gallery" | "contact" | "booking"
 
@@ -308,16 +309,14 @@ function GalleryPage({ navigate }: { navigate: (p: Page) => void }) {
               "/ceramic-5yr.jpg",
               "/maintenance.jpg",
             ].map((src, i) => (
-              <div key={i} className="relative overflow-hidden aspect-square group cursor-pointer">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+              <div key={i} className="relative overflow-hidden aspect-square group">
+                <ImageZoom
                   src={src}
                   alt={`Renaissance Detailing work ${i + 1}`}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 brightness-75 group-hover:brightness-90"
+                  width={800}
+                  height={800}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 brightness-75 group-hover:brightness-100 !rounded-none"
                 />
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-400">
-                  <span className="font-[family-name:var(--font-playfair)] italic text-[0.7rem] tracking-[0.4em] uppercase text-white/60">Renaissance</span>
-                </div>
               </div>
             ))}
           </div>
