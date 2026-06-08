@@ -30,19 +30,6 @@ export default function HeroBackground() {
         />
       </div>
 
-      {/* Vertical line accents matching the static site */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {[20, 40, 60, 80].map((left) => (
-          <div
-            key={left}
-            className="absolute top-0 bottom-0 w-px"
-            style={{
-              left: `${left}%`,
-              background: "linear-gradient(180deg, transparent, rgba(192,192,192,0.04), transparent)",
-            }}
-          />
-        ))}
-      </div>
     </div>
   )
 }
