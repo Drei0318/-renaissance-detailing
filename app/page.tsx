@@ -4,6 +4,8 @@ import { useState, useEffect } from "react"
 import HeroBackground from "@/components/ui/demo"
 import { ImageZoom } from "@/components/ui/zoomable-image"
 import { GooeyText } from "@/components/ui/gooey-text-morphing"
+import { ExpandingCards, type CardItem } from "@/components/ui/expanding-cards"
+import { Car, Shield, Sparkles, Droplets, Star, Zap } from "lucide-react"
 
 type Page = "home" | "services" | "about" | "gallery" | "contact" | "booking"
 
@@ -298,19 +300,68 @@ function AboutPage({ navigate }: { navigate: (p: Page) => void }) {
   )
 }
 
+const GALLERY_CARDS: CardItem[] = [
+  {
+    id: "exterior",
+    title: "Exterior Detail",
+    description: "Full exterior wash, clay bar, machine polish and premium paint protection. Showroom finish delivered to your door.",
+    imgSrc: "/work-1.jpg",
+    icon: <Car size={22} />,
+    linkHref: "#",
+  },
+  {
+    id: "ceramic-2yr",
+    title: "Ceramic Coating",
+    description: "Nano-ceramic protection bonded to your paintwork — hydrophobic, UV-resistant, self-cleaning defence for years.",
+    imgSrc: "/ceramic-2yr.jpg",
+    icon: <Shield size={22} />,
+    linkHref: "#",
+  },
+  {
+    id: "maintenance",
+    title: "Maintenance Wash",
+    description: "Scheduled upkeep to preserve your ceramic coating or detail between full services.",
+    imgSrc: "/maintenance.jpg",
+    icon: <Droplets size={22} />,
+    linkHref: "#",
+  },
+  {
+    id: "full-detail",
+    title: "Full Detail Package",
+    description: "The complete Renaissance experience — interior and exterior transformation in one thorough session.",
+    imgSrc: "/hero.jpg",
+    icon: <Sparkles size={22} />,
+    linkHref: "#",
+  },
+  {
+    id: "ceramic-5yr",
+    title: "Premium Ceramic",
+    description: "Our flagship 5-year ceramic coating — the highest level of protection and gloss available.",
+    imgSrc: "/ceramic-5yr.jpg",
+    icon: <Star size={22} />,
+    linkHref: "#",
+  },
+  {
+    id: "interior",
+    title: "Interior Detail",
+    description: "Deep clean, steam sanitisation, leather conditioning and panel dressing. A pristine cabin environment.",
+    imgSrc: "/work-3.jpg",
+    icon: <Zap size={22} />,
+    linkHref: "#",
+  },
+]
+
 function GalleryPage({ navigate }: { navigate: (p: Page) => void }) {
   return (
     <PageView>
       <div className="max-w-6xl mx-auto px-6 md:px-10 py-14">
         <FadeIn>
-          <div className="mb-12">
+          <div className="mb-10">
             <BackBtn onClick={() => navigate("home")} />
-            <p className="text-[0.6rem] font-medium tracking-[0.35em] uppercase text-[#888] mt-8">Our Work</p>
-            <div className="w-10 h-px bg-[#c0c0c0] my-5" />
-            <h2 className="font-[family-name:var(--font-playfair)] text-4xl md:text-5xl text-white leading-tight mb-3">Gallery</h2>
-            <p className="text-sm text-[#666]">
-              Follow us on{" "}
-              <a href="https://www.instagram.com/renaissancesyd/" target="_blank" rel="noopener noreferrer" className="text-[#d8d8d8] hover:text-white transition-colors">
+            <h2 className="font-[family-name:var(--font-playfair)] text-5xl md:text-6xl italic text-white mt-10 mb-2 leading-tight">Gallery</h2>
+            <p className="text-[0.72rem] text-[#555]">
+              Hover a card to explore. Follow{" "}
+              <a href="https://www.instagram.com/renaissancesyd/" target="_blank" rel="noopener noreferrer" className="text-[#888] hover:text-white transition-colors">
                 @renaissancesyd
               </a>{" "}
               for the latest work.
@@ -318,52 +369,34 @@ function GalleryPage({ navigate }: { navigate: (p: Page) => void }) {
           </div>
         </FadeIn>
 
-        {/* Video — full width autoplay */}
-        <FadeIn delay={0.08}>
-          <div className="w-full overflow-hidden mb-0.5">
+        {/* Video — full width */}
+        <FadeIn delay={0.06}>
+          <div className="w-full overflow-hidden mb-6">
             <video
               src="/gloss.mp4"
               autoPlay
               muted
               loop
               playsInline
-              className="w-full object-cover max-h-[70vh]"
+              className="w-full object-cover max-h-[50vh]"
             />
           </div>
         </FadeIn>
 
-        {/* Photo grid */}
-        <FadeIn delay={0.14}>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-0.5">
-            {[
-              "/hero.jpg",
-              "/work-1.jpg",
-              "/work-3.jpg",
-              "/work-4.jpg",
-              "/ceramic-2yr.jpg",
-              "/ceramic-5yr.jpg",
-              "/maintenance.jpg",
-            ].map((src, i) => (
-              <div key={i} className="relative overflow-hidden aspect-square group [&_span]:block [&_span]:w-full [&_span]:h-full">
-                <ImageZoom
-                  src={src}
-                  alt={`Renaissance Detailing work ${i + 1}`}
-                  width={800}
-                  height={800}
-                  className="!w-full !h-full object-cover transition-transform duration-700 group-hover:scale-105 brightness-75 group-hover:brightness-100 !rounded-none"
-                />
-              </div>
-            ))}
-          </div>
+        {/* Expanding cards */}
+        <FadeIn delay={0.1}>
+          <ExpandingCards items={GALLERY_CARDS} defaultActiveIndex={0} className="mb-8" />
+        </FadeIn>
 
-          <div className="text-center mt-8">
+        <FadeIn delay={0.16}>
+          <div className="text-center mt-6 mb-4">
             <a
               href="https://www.instagram.com/renaissancesyd/"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-[0.65rem] font-medium tracking-[0.25em] uppercase text-[#777] hover:text-white transition-colors group"
             >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
               </svg>
               View on Instagram
