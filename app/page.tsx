@@ -388,8 +388,25 @@ function GalleryPage({ navigate }: { navigate: (p: Page) => void }) {
           <ExpandingCards items={GALLERY_CARDS} defaultActiveIndex={0} className="mb-8" />
         </FadeIn>
 
-        <FadeIn delay={0.16}>
-          <div className="text-center mt-6 mb-4">
+        {/* Zoomable photo grid */}
+        <FadeIn delay={0.18}>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-0.5 mb-6">
+            {["/work-3.jpg", "/work-4.jpg", "/ceramic-5yr.jpg", "/hero.jpg"].map((src, i) => (
+              <div key={i} className="relative overflow-hidden aspect-square group [&_span]:block [&_span]:w-full [&_span]:h-full">
+                <ImageZoom
+                  src={src}
+                  alt={`Renaissance Detailing work ${i + 1}`}
+                  width={600}
+                  height={600}
+                  className="!w-full !h-full object-cover brightness-75 group-hover:brightness-100 transition-all duration-500 !rounded-none"
+                />
+              </div>
+            ))}
+          </div>
+        </FadeIn>
+
+        <FadeIn delay={0.22}>
+          <div className="text-center mt-2 mb-4">
             <a
               href="https://www.instagram.com/renaissancesyd/"
               target="_blank"
@@ -595,21 +612,23 @@ function HomePage({ navigate }: { navigate: (p: Page) => void }) {
       <div className="relative z-10 flex flex-col items-center px-8 w-full max-w-3xl">
 
         {/* Logo */}
-        <FadeIn className="flex flex-col items-center text-center gap-0">
+        <FadeIn className="flex flex-col items-center text-center">
           <LogoMark size={110} />
-          <div className="mt-10">
-            <GooeyText
-              texts={["Renaissance Detailing", "Sydney Mobile", "Ceramic Coating", "By Appointment"]}
-              morphTime={1.2}
-              cooldownTime={2.5}
-              className="h-20 w-[480px] max-w-[92vw]"
-              textClassName="font-[family-name:var(--font-playfair)] text-[2rem] font-bold tracking-[0.18em] uppercase text-white w-full"
-            />
-          </div>
+        </FadeIn>
+
+        {/* Fading text — centred between logo and nav */}
+        <FadeIn delay={0.1} className="w-full my-8 md:my-10">
+          <GooeyText
+            texts={["Renaissance Detailing", "Sydney Mobile", "Ceramic Coating", "By Appointment"]}
+            cooldownTime={[4, 2, 2, 2]}
+            fadeTime={0.7}
+            className="h-14 w-[480px] max-w-[92vw] mx-auto"
+            textClassName="font-[family-name:var(--font-playfair)] text-[2rem] font-bold tracking-[0.18em] uppercase text-white"
+          />
         </FadeIn>
 
         {/* Thin rule */}
-        <FadeIn delay={0.12} className="w-full mt-10">
+        <FadeIn delay={0.12} className="w-full">
           <div className="w-full h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent)" }} />
         </FadeIn>
 
