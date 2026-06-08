@@ -158,15 +158,15 @@ function ServicesPage({ navigate }: { navigate: (p: Page) => void }) {
           <p className="text-[0.65rem] text-[#444] tracking-[0.15em] max-w-[180px] text-right leading-relaxed">Tailored to your vehicle.<br />Delivered across Sydney.</p>
         </FadeIn>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/[0.06]">
+        <div className="flex flex-col gap-px bg-white/[0.05]">
           {SERVICES.map((svc, i) => (
             <FadeIn key={svc.num} delay={i * 0.06}>
               <button
                 onClick={() => navigate("booking")}
                 className="group text-left w-full flex flex-col overflow-hidden hover:bg-white/[0.02] transition-colors duration-500"
               >
-                {/* Photo */}
-                <div className="w-full aspect-[16/9] overflow-hidden">
+                {/* Photo — tall */}
+                <div className="w-full h-[55vw] max-h-[480px] min-h-[260px] overflow-hidden">
                   <img
                     src={svc.img}
                     alt={svc.name}
@@ -174,14 +174,16 @@ function ServicesPage({ navigate }: { navigate: (p: Page) => void }) {
                   />
                 </div>
 
-                {/* Text */}
-                <div className="p-6 md:p-8 flex-1 flex flex-col gap-3">
-                  <div className="flex items-start justify-between gap-4">
-                    <h3 className="font-[family-name:var(--font-playfair)] text-2xl text-white/70 group-hover:text-white transition-colors duration-300 leading-snug">{svc.name}</h3>
-                    <span className="font-[family-name:var(--font-montserrat)] text-[0.42rem] tracking-[0.22em] uppercase text-[#333] group-hover:text-[#666] transition-colors shrink-0 pt-1">{svc.tag}</span>
+                {/* Text row */}
+                <div className="px-6 md:px-10 py-6 flex items-center justify-between gap-6">
+                  <div className="flex items-baseline gap-6">
+                    <h3 className="font-[family-name:var(--font-playfair)] text-2xl md:text-3xl text-white/70 group-hover:text-white transition-colors duration-300">{svc.name}</h3>
+                    <p className="hidden md:block text-[0.75rem] text-[#444] group-hover:text-[#666] leading-relaxed transition-colors duration-300 max-w-xl">{svc.desc}</p>
                   </div>
-                  <p className="text-[0.75rem] text-[#444] group-hover:text-[#666] leading-[1.9] transition-colors duration-300">{svc.desc}</p>
-                  <span className="text-white/10 group-hover:text-white/40 transition-colors duration-400 text-sm mt-auto">Book →</span>
+                  <div className="flex items-center gap-6 shrink-0">
+                    <span className="font-[family-name:var(--font-montserrat)] text-[0.42rem] tracking-[0.22em] uppercase text-[#333] group-hover:text-[#555] transition-colors">{svc.tag}</span>
+                    <span className="text-white/20 group-hover:text-white/60 transition-colors duration-300 text-sm">→</span>
+                  </div>
                 </div>
               </button>
             </FadeIn>
