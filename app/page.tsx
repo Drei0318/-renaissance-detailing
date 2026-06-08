@@ -1,7 +1,6 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import NextImage from "next/image"
 import HeroBackground from "@/components/ui/demo"
 
 type Page = "home" | "services" | "about" | "gallery" | "contact" | "booking"
@@ -9,7 +8,8 @@ type Page = "home" | "services" | "about" | "gallery" | "contact" | "booking"
 // ─── Logo ──────────────────────────────────────────────────────────────────────
 function LogoMark({ size = 44 }: { size?: number }) {
   return (
-    <NextImage
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
       src="/logo.png"
       alt="Renaissance Detailing"
       width={size}
@@ -62,11 +62,11 @@ function BackBtn({ onClick }: { onClick: () => void }) {
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
 const SERVICES = [
-  { num: "01", name: "Exterior Detail", desc: "Full exterior wash, clay bar treatment, machine polish, and premium paint protection. Restore your vehicle's showroom finish.", tag: "Most Popular" },
-  { num: "02", name: "Interior Detail", desc: "Deep clean, vacuum, steam sanitisation, leather conditioning, and panel dressing. A pristine cabin environment.", tag: "Enquire" },
-  { num: "03", name: "Ceramic Coating", desc: "Nano-ceramic protection that bonds with your paintwork, offering years of hydrophobic, UV-resistant, and self-cleaning defence.", tag: "Signature" },
-  { num: "04", name: "Full Detail Package", desc: "The complete Renaissance experience — interior and exterior transformation combined into one comprehensive, thorough package.", tag: "Best Value" },
-  { num: "05", name: "Maintenance Wash", desc: "Scheduled upkeep to preserve your ceramic coating or detail. Keep your vehicle in pristine condition between full services.", tag: "Ongoing" },
+  { num: "01", name: "Exterior Detail", desc: "Full exterior wash, clay bar treatment, machine polish, and premium paint protection. Restore your vehicle's showroom finish.", tag: "Most Popular", img: "/work-1.jpg" },
+  { num: "02", name: "Interior Detail", desc: "Deep clean, vacuum, steam sanitisation, leather conditioning, and panel dressing. A pristine cabin environment.", tag: "Enquire", img: "/work-3.jpg" },
+  { num: "03", name: "Ceramic Coating", desc: "Nano-ceramic protection that bonds with your paintwork, offering years of hydrophobic, UV-resistant, and self-cleaning defence.", tag: "Signature", img: "/ceramic-2yr.jpg" },
+  { num: "04", name: "Full Detail Package", desc: "The complete Renaissance experience — interior and exterior transformation combined into one comprehensive, thorough package.", tag: "Best Value", img: "/hero.jpg" },
+  { num: "05", name: "Maintenance Wash", desc: "Scheduled upkeep to preserve your ceramic coating or detail. Keep your vehicle in pristine condition between full services.", tag: "Ongoing", img: "/maintenance.jpg" },
 ]
 
 const WHY_ITEMS = [
@@ -163,22 +163,26 @@ function ServicesPage({ navigate }: { navigate: (p: Page) => void }) {
             <FadeIn key={svc.num} delay={i * 0.04}>
               <button
                 onClick={() => navigate("booking")}
-                className="group text-left border-t border-white/[0.06] py-8 md:py-10 grid grid-cols-[1fr_auto] gap-6 hover:border-white/20 transition-all duration-500 relative overflow-hidden"
+                className="group text-left border-t border-white/[0.06] py-6 md:py-8 grid grid-cols-[1fr_auto] gap-6 md:gap-10 hover:border-white/20 transition-all duration-500 w-full"
               >
-                {/* background number — large ghosted */}
-                <span
-                  className="absolute right-0 top-1/2 -translate-y-1/2 font-[family-name:var(--font-playfair)] text-[7rem] md:text-[9rem] leading-none text-white/[0.025] group-hover:text-white/[0.05] transition-all duration-500 select-none pointer-events-none"
-                  aria-hidden
-                >
-                  {svc.num}
-                </span>
+                <div className="flex gap-6 md:gap-10 items-center">
+                  {/* Photo thumbnail */}
+                  <div className="shrink-0 w-20 h-20 md:w-28 md:h-28 overflow-hidden">
+                    <img
+                      src={svc.img}
+                      alt={svc.name}
+                      className="w-full h-full object-cover brightness-75 group-hover:brightness-100 group-hover:scale-105 transition-all duration-500"
+                    />
+                  </div>
 
-                <div className="relative z-10">
-                  <h3 className="font-[family-name:var(--font-playfair)] text-2xl md:text-3xl text-white/60 group-hover:text-white transition-colors duration-400 mb-3 leading-snug">{svc.name}</h3>
-                  <p className="text-[0.75rem] text-[#444] group-hover:text-[#666] leading-[1.9] transition-colors duration-400 max-w-lg">{svc.desc}</p>
+                  {/* Text */}
+                  <div>
+                    <h3 className="font-[family-name:var(--font-playfair)] text-2xl md:text-3xl text-white/60 group-hover:text-white transition-colors duration-400 mb-2 leading-snug">{svc.name}</h3>
+                    <p className="text-[0.75rem] text-[#444] group-hover:text-[#666] leading-[1.9] transition-colors duration-400 max-w-lg">{svc.desc}</p>
+                  </div>
                 </div>
 
-                <div className="relative z-10 flex flex-col items-end justify-between shrink-0 pt-1">
+                <div className="flex flex-col items-end justify-between shrink-0 pt-1">
                   <span className="font-[family-name:var(--font-montserrat)] text-[0.42rem] tracking-[0.25em] uppercase text-[#2a2a2a] group-hover:text-[#555] transition-colors">{svc.tag}</span>
                   <span className="text-white/10 group-hover:text-white/40 transition-colors duration-400 text-lg">→</span>
                 </div>
@@ -291,11 +295,11 @@ function GalleryPage({ navigate }: { navigate: (p: Page) => void }) {
               "/maintenance.jpg",
             ].map((src, i) => (
               <div key={i} className="relative overflow-hidden aspect-square group cursor-pointer">
-                <NextImage
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
                   src={src}
                   alt={`Renaissance Detailing work ${i + 1}`}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105 brightness-75 group-hover:brightness-90"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 brightness-75 group-hover:brightness-90"
                 />
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-400">
                   <span className="font-[family-name:var(--font-playfair)] text-[0.7rem] tracking-[0.4em] uppercase text-white/60">Renaissance</span>
